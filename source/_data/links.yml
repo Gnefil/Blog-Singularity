@@ -1,0 +1,48 @@
+# Detects changes on each reload
+
+- links_category: You may also want to check out blogs from these awesome people too!
+  has_thumbnail: false
+  list: 
+
+    - name: 琳若尘泥 十里琅居
+      link: https://www.ryanxin.cn/
+      description: ./ Digging Myself
+      avatar: https://avatars.githubusercontent.com/u/44575697?v=4
+      # thumbnail: /images/home_banner_light.png
+
+    - name: Random Linear Space
+      link: https://eigentom.github.io/
+      description: 高阶线性微分方程组会梦见基础解系吗?
+      avatar: https://avatars.githubusercontent.com/u/60131395?v=4
+
+    - name: Maggie's Rose Garden
+      link: https://maggieruyi.github.io/
+      description: In my barren land you are the final rose.
+      avatar: /images/utility/maggie-avatar.jpg
+
+    - name: 爱幻想的Ren
+      link: https://fantasy-ren.tech/en
+      description: 我经常幻想💭
+      avatar: https://avatars.githubusercontent.com/u/77408244?v=4
+
+    - name: 灰貓咖啡廳
+      link: https://graynekocafe.net/
+      description: 沒有什麽比冬天的熱咖啡和貓咪更讓人幸福的了。
+      avatar: https://avatars.githubusercontent.com/u/10878995?v=4
+
+    - name: 无垠
+      link: https://flyhigher.top/
+      description: 飞翔的天空无限大。
+      avatar: https://avatars.githubusercontent.com/u/14820835?v=4
+
+    - name: Kevin的生活
+      link: https://kevinisme01.github.io/
+      description: 辣个男人。
+      avatar: /images/utility/chuhan-avatar.jpg
+
+    - name: Neko Asakura
+      link: http://blog.asakura.jp.net/
+      description: Temporarily down
+      avatar: https://avatars.githubusercontent.com/u/72689291?v=4
+
+
