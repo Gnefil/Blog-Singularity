@@ -34,7 +34,7 @@ jobs:
           mkdir ~/.ssh/
           echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 700 ~/.ssh/id_rsa
-          $ {{ env.ssh-prefix }} rm -rf ${{ env.temp-dir }}
+          ${{ env.ssh-prefix }} rm -rf ${{ env.temp-dir }}
           ${{ env.scp-prefix }} ./public ubuntu@13.40.196.20:${{ env.temp-dir }}
 
       - name: Check content existence
