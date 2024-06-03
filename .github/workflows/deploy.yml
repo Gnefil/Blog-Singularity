@@ -36,7 +36,7 @@ jobs:
           chmod 700 ~/.ssh/id_rsa
           mv ./public ./blog
           ${{ env.ssh-prefix }} rm -rf ${{ env.temp-dir }}
-          ${{ env.scp-prefix }} ./public ubuntu@13.40.196.20:${{ env.temp-dir }}
+          ${{ env.scp-prefix }} ./blog ubuntu@13.40.196.20:${{ env.temp-dir }}
 
       - name: Check content existence
         run: ${{ env.ssh-prefix }} 'if [ -d ${{ env.temp-dir }} ]; then echo "temporal folder is not empty"; else echo "temporal folder is empty"; fi'
