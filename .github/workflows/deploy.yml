@@ -34,6 +34,7 @@ jobs:
           mkdir ~/.ssh/
           echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 700 ~/.ssh/id_rsa
+          $ {{ env.ssh-prefix }} rm -rf ${{ env.temp-dir }}
           ${{ env.scp-prefix }} ./public ubuntu@13.40.196.20:${{ env.temp-dir }}
 
       - name: Check content existence
@@ -41,8 +42,6 @@ jobs:
 
       - name: Find and remove differences in production folder
         run: |
-            ${{ env.ssh-prefix }} ls -l ${{ env.temp-dir }}
-            ${{ env.ssh-prefix }} touch ${{ env.temp-dir }}/remove.txt
             ${{ env.ssh-prefix }} diff -rq ${{ env.prod-dir }} ${{ env.temp-dir }} | grep Only | awk '/${{ env.esc-prod-dir }}/ {print substr($3, 1, length($3)-1) "/" $4}' > ${{ env.temp-dir }}/remove.txt
             ${{ env.ssh-prefix }} 'while read line; do sudo rm -r "$line"; done < ${{ env.temp-dir }}/remove.txt'
             ${{ env.ssh-prefix }} rm ${{ env.temp-dir }}/remove.txt
