@@ -1,0 +1,52 @@
+name: Deploy to production server
+run-name: ${{ github.actor }} is deploying blog to production server
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      ssh-prefix: ssh -o StrictHostKeyChecking=no ubuntu@13.40.196.20
+      scp-prefix: scp -o StrictHostKeyChecking=no -r
+      temp-dir: /home/ubuntu/blog
+      prod-dir: /var/www/html/blog
+      esc-prod-dir: \/var\/www\/html\/blog
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Clean install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to remote server
+        run: |
+          mkdir ~/.ssh/
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 700 ~/.ssh/id_rsa
+          ${{ env.scp-prefix }} ./public ubuntu@13.40.196.20:${{ env.temp-dir }}
+
+      - name: Check content existence
+        run: ${{ env.ssh-prefix }} 'if [ -d ${{ env.temp-dir }} ]; then echo "temporal folder is not empty"; else echo "temporal folder is empty"; fi'
+
+      - name: Find and remove differences in production folder
+        run: |
+            ${{ env.ssh-prefix }} diff -rq ${{ env.prod-dir }} ${{ env.temp-dir }} | grep Only | awk '/${{ env.esc-prod-dir }}/ {print substr($3, 1, length($3)-1) "/" $4}' > ${{ env.temp-dir }}/remove.txt
+            ${{ env.ssh-prefix }} 'while read line; do sudo rm -r "$line"; done < ${{ env.temp-dir }}/remove.txt'
+            ${{ env.ssh-prefix }} rm ${{ env.temp-dir }}/remove.txt
+
+      - name: Replace production code
+        run: ${{ env.ssh-prefix }} sudo cp -r ${{ env.temp-dir }}/* ${{ env.prod-dir }}
+
+      - name: Cleaning
+        run: ${{ env.ssh-prefix }} rm -r ${{ env.temp-dir }}
