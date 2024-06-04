@@ -43,9 +43,9 @@ jobs:
 
       - name: Find and remove differences in production folder
         run: |
-            ${{ env.ssh-prefix }} touch ${{ env.temp-dir }}/remove.txt
-            ${{ env.ssh-prefix }} 'if [ -f ${{ env.temp-dir }}/remove.txt ]; then rm ${{ env.temp-dir }}/remove.txt; fi'
-            ${{ env.ssh-prefix }} diff -rq ${{ env.prod-dir }} ${{ env.temp-dir }} | grep Only | awk '/${{ env.esc-prod-dir }}/ {print substr($3, 1, length($3)-1) "/" $4}' > ubuntu@13.40.196.20:${{ env.temp-dir }}/remove.txt
+            ${{ env.ssh-prefix }} diff -rq ${{ env.prod-dir }} ${{ env.temp-dir }} | grep Only | awk '/${{ env.esc-prod-dir }}/ {print substr($3, 1, length($3)-1) "/" $4}' > ./remove.txt
+            ${{ env.ssh-prefix }} ls
+            ls
             ${{ env.ssh-prefix }} 'while read line; do sudo rm -r "$line"; done < ${{ env.temp-dir }}/remove.txt'
             ${{ env.ssh-prefix }} rm ${{ env.temp-dir }}/remove.txt
 
