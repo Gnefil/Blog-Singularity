@@ -1,4 +1,12 @@
 ---
 title: {{ title }}
-tags:
+
+categories: [category]
+tags: [tag]
+
+thumbnail: 
+excerpt: ""
+banner: 
+
+sticky: 
 ---
