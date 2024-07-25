@@ -1,9 +1,9 @@
 ---
 title: EEG Feeling Emotions with PyTorch
 date: 2022-10-26 12:23:19
-categories: [EEG]
-tags: [EEG, PyTorch, Machine Learning]
-thumbnail: 
+categories: [AI & ML]
+tags: [EEG, PyTorch, Logistic Regression]
+thumbnail: images/thumbnails/eeg_emotions.png
 excerpt: How do you feel today? Wait, don't tell me. Let me guess it. Based on? Your brain signals.
 banner: 
 sticky: 
@@ -19,7 +19,7 @@ EEG data from [Kaggle](https://www.kaggle.com/datasets/birdy654/eeg-brainwave-da
 <a href="https://colab.research.google.com/drive/1uHlS2GPhqjeEn1hAN_8pgxZpO9LQr5Nw?usp=sharing" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 ## 1. Environment
----
+
 Before hands on, get the **tools** 🧰 ready!
 
 ### 1.1 Import!
@@ -58,7 +58,7 @@ Find a place to play around, let's create a folder called `EEG` and we build eve
 ```
 
 ## 2. Data
----
+
 Bring up the data✨, and let's see what it is made of!
 
 ### 2.1 Download the data
@@ -137,7 +137,7 @@ for i in range(0, 6):
 By eye, how would you say the differences between positive and negative brain signals?
 
 ## 3. Create model
----
+
 Now it is time to write the **logistic regression** model ​⚒️!
 
 > ***Side notes***: we can if we want, write the step-by-step code of the model. But most of the times, we tend to use a *frameworks* (code), a prepared codebase that already has the skeleton of model. They are handy and easy to use.  
@@ -191,7 +191,7 @@ class EmotionLogisticRegressionModel(torch.nn.Module):
 ```
 
 ## 4. Train model
----
+
 The most intense part (for computers) comes now! We train 🏋 the model.
 
 ### 4.1. Hyperparameters
