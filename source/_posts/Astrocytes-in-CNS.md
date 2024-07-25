@@ -1,13 +1,14 @@
 ---
 title: Astrocytes in CNS
-date: 2022-03-19 12:33:15
 categories: [Neuroscience]
-tags: [Biology, Neuroscience, Glial cells, Astrocytes, How to Make a Brain]
-thumbnail: 
-excerpt: Astrocytes is one of the most abundant glial cells that reside in the Central Nervous System (CNS). They carry indispensable supportive functions. What are their main functions? 
-banner: 
-sticky: 
+tags: [Class Notes]
+thumbnail: images/thumbnails/astrocytes.png
+excerpt: ''
+date: 2022-03-19 12:33:15
+banner:
+sticky:
 ---
+
 # What are the main functions of astrocytes in the CNS?
 
 ## Astrocytes?
@@ -19,11 +20,15 @@ First, astrocytes have a role in the developmental process of CNS. It helps regu
 ## Net of "blood canal"
 Moreover, astrocytes contribute to the structural formation of CNS. They raise scaffold to the functional architecture in the grey matter by forming individual astroglial domains. Astroglial domains are neuronal-glial-vascular units built around a neuronal network, in this way, astrocytes can help regulate further the microcirculation in each sub-neural environment in detail. Also, glial-vascular interfaces are used in the Blood-Brain Barrier (BBB). CNS is a highly important and vulnerable system in the body, so, to prevent highly dangerous substances and possible toxins from regular blood vessels, the brain needs to exhaustively examine all the substances that are passed to the brain. The separation of regular blood from the brain is achieved by BBB. Astrocytes’ glial-vascular interface controls over the tight junction that on the one hand impedes all substances pass from BBB, and on the other hand actively transports substances from BBB that are needed (Verkhratsky and Butt 2007). In some animals, like Elasmobranchii, astrocytes form part of the tight junction. When inside the brain, astrocytes cover completely the brain vessels and capillaries with the perivascular processes, maintaining organ homeostasis.
 
+![astrocytes](images/illustrations/astrocytes_1.png)
+
 ## Environmental maintenance
 Astrocytes have remarkable metabolic homeostasis. As the only cells capable of controlling water flux inside CNS, astrocytes regulate the microenvironment of the synapses and neurons with their aquaporins (Verkhratsky and Butt 2007). Because of this characteristic, they are in charge also in the glymphatic system inside CNS. Neurons often create wastes, degraded protein during their life and metabolism, which require astrocytes to transport and clean up. All blood vessels in BBB are wrapped by endothelial tight junction in CNS, then covered by a layer of vascular base membrane and astrocyte vascular endfeet. The space in between, the perivascular space, is filled with extracellular fluid, the cerebrospinal fluid. This entire flow enters through the para-arterial space as an influx with nutrients and other substances. Then the astrocytes drain the water from the para-arterial space with their water channels. Once supplied with water, they clean and washes neurons debris through connective flow. The wastes are transported and end at the outflux flow of the vessels, the para-venous efflux. And finally, this fluid is eventually cleaned out from the brain. 
 
 ## Energy depository of neurons
 Another important metabolic function of the astrocytes is that they are the supplier of energies for neurons when necessary. Even though the brain only has around 2% of the body mass, it consumes at least 20% of the total energy gained and takes around 10% of the cardiac blood output. This big amount of energy is normally split in half, for neurons and astrocytes. Neurons normally consume the energy directly as soon as they arrive in 90%-95%, in which its major part is used on synapse and to maintain Sodium-Potassium pump (Magistretti 2015). In contrast, astrocytes do not consume most of the energy, they store most of the glycogen for supply neurons in the future. In the case of a neuron synapse using glutamate, astrocytes would receive the synapse signal by glutamate receptors. This signals the astrocytes to activate glycolysis, and as result, lactate is produced, which is then transported to neighbouring neurons to provide extra energy (Dringen, Gebhart and Hamprecht 1993).
+
+![astrocytes](images/illustrations/astrocytes_2.png)
 
 ## Chemical homeostasis
 In addition, astrocytes regulate systemic homeostasis with chemosensing. It can sense the sodium in the blood vessels like a “salt sensor”, by Nax, a concentration-gated sodium channel. An increase in sodium in CNS will increase activate this channel to stimuli and increase the lactate production in astrocytes, and this signals GABA neurons so that they control the efflux quantity of sodium in the blood. Also, they chemically sense the CO2 concentration in blood vessels. If the concentration is too high, it activates calcium waves inside astrocytes which causes ATP release and signals respiratory neurons to enhance ventilation.
