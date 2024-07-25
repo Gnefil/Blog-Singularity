@@ -1,8 +1,9 @@
 ---
-title: Feeling More and More like a Computer
+title: Becoming More Like Computer Every Day
 date: 2023-01-15 12:22:59
-categories: [Low Tea Party]
-tags: thumbnail: 
+categories: [Computer Science]
+tags: [Rumination & Reflection]
+thumbnail: images/thumbnails/like_computer.png
 excerpt: He who studies computers might take care lest he thereby think like a computer. And remind your fate is gazing back to you.
 banner: 
 sticky: 
@@ -35,12 +36,12 @@ Interestingly, I still rely on this solidified mode of thinking while doing such
 As the amount of knowledge continues to increase, my thinking is becoming more and more set in stone. There is no problem with this statement though because as more knowledge pours in, they tend to accumulate on each person's model for understanding the world - **worldview**. Whenever logical knowledge is added and when it does not conflict with the existing worldview, then the knowledge is absorbed and the existing model is thickened, (like a building block model). If it is new and conflicting knowledge the ones breaking in, we have to measure the impact of the new knowledge on the existing worldview. This happens in one of three ways. One is that the worldview extremely excludes this new knowledge, in other words, it is *completely irrational* (for this person), and that's when the knowledge is kicked out of the model world. The second one is when the new knowledge is given more weight upon reflection than the conflicting knowledge in the original worldview, then the old knowledge is the one that gets kicked out at that point. The third is where neither knowledge can be accurately removed, and the result is that both are valued with their feasible weights, blended or retained until a new framework can explain them both.
 <br>
 
-![Building Blocks](https://raw.githubusercontent.com/Gnefil/Blog/main/img/post_images/feeling_like_computer_building_block.jpg)
+![Computer Build of Blocks](images/illustrations/like_computer.1.png)
 <br>
 
 Why do we suddenly start discussing worldviews, I want to illustrate a closely related but not identical concept to worldviews. If a worldview is compared to the accumulation of acquired knowledge, the database of knowledge, then the way people acquire knowledge, the way they think about knowledge is - **methodology**. Here to draw out the point of these two paragraphs, in the process of learning, the thickening of the worldview will expand the boundaries of cognition, *but with the expansion of knowledge, the methodology will also be solidified at the same time leading to rigid thinking*. An analogy between this concept and a rigid worldview can be drawn. A rigid worldview is a refusal to update the worldview for any kind of external information, while rigid thinking is the refusal to update the methodology. While I was learning computer theory, what I studied and how I thought converged the same. So in general, **yes, I have a more extensive knowledge base than before, but the way I think is becoming more and more solidified, more and more like a computer**.
 <br>
 
-![Scaffold of Blocks](https://raw.githubusercontent.com/Gnefil/Blog/main/img/post_images/feeling_like_computer_scaffold.jpg)
-<br>n/img/post_images/feeling_like_computer_scaffold.jpg)
+![Scaffold of Blocks](images/illustrations/like_computer.2.png)
+<br>
 <br>
