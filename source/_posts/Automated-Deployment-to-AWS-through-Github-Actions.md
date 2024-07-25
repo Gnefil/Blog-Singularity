@@ -2,11 +2,12 @@
 title: Automated Deployment to AWS through Github Actions
 date: 2023-01-15 12:23:53
 categories: [Deployment]
-tags: [Github Actions, AWS]
-thumbnail: 
+tags: [Tutorial, Github Actions, AWS]
+thumbnail: images/thumbnails/auto_deploy.jpg
 excerpt: Frustrated about git pushing - remote access - git pulling all the time? This post will show you a simple automated way to deploy code through GitHub Actions.
 banner: 
 sticky: 
+expires: 2024-07-25 18:52:00
 ---
 
 # Aims
@@ -35,7 +36,7 @@ Here are the key roles of this deployment.
 ### Github repo
 First of all, we assume that we have a GitHub account. We will start a new repo as an example and call it "my_deployment_project", and place clone it somewhere in your computer.
 
-![Create repo](https://raw.githubusercontent.com/Gnefil/Blog/main/img/post_images/automated_deployment_create_repo.png)
+![Create repo](images/illustrations/auto_deploy.create_repo.png)
 
 ```sh
 Computer
@@ -84,13 +85,13 @@ Right now it is empty.
 
 ### Set up GitHub Actions
 If we look right now at our `Actions` tab in the repo, we find it empty.
-![Empty Github Actions](https://raw.githubusercontent.com/Gnefil/Blog/main/img/post_images/automated_deployment_github_actions_empty.png)
+![Empty Github Actions](images/illustrations/auto_deploy.github_actions_empty.png)
 
 You might have seen that there are all kinds of pre-established configurations for deployment to Azure, AWS, etc. servers, but in this post, we will use the simplest one there.
 
 Click on the `configure` button in `Simple workflow` and this view comes out.
 
-![New Workflow](https://raw.githubusercontent.com/Gnefil/Blog/main/img/post_images/automated_deployment_new_workflow.png)
+![New Workflow](images/illustrations/auto_deploy.new_workflow.png)
 
 In essence, to run **Github Actions**, you must create a YAML file under the `my_project/.github/workflows/` folder. Name it as you want, I have called it *deployment.yml*
 
@@ -191,11 +192,11 @@ Later, the SSH key must be stored in a folder with file name *~/.ssh/id_rsa*. `c
 
 Also, you might have noticed that it is really unsafe to store SSH keys or other sensible pieces of information explicitly there in the code. Therefore, Github provides a helpful function called **Environment Secrets**. It is in the `Settings` tab in the Github repo, `Security`, and then `Actions`.
 
-![Environment Secrets](https://raw.githubusercontent.com/Gnefil/Blog/main/img/post_images/automated_deployment_env_secrets.png)
+![Environment Secrets](images/illustrations/auto_deploy.env_secrets.png)
 
 Click on `New Repository Secret` and add your SSH key. I have called it SSH_KEY. Once you have done that, you will see `SSH_KEY` in the `Repository Secrets`. And this can be now invoked in Github Actions by variable name **secrets.SSH_KEY**.
 
-![SSH Key](https://raw.githubusercontent.com/Gnefil/Blog/main/img/post_images/automated_deployment_ssh_key.png)
+![SSH Key](images/illustrations/auto_deploy.ssh_key.png)
 
 Then we can change our **step 2** to:
 ```yml
@@ -209,7 +210,7 @@ run: |
 
 Finally, in **step 3** we make use of `scp`, to copy the contents of the current folder of the runner into the remote server.
 
-![Current working directory of the runner](https://raw.githubusercontent.com/Gnefil/Blog/main/img/post_images/automated_deployment_runners_working_directory.png)
+![Current working directory of the runner](images/illustrations/auto_deploy.runners_working_directory.png)
 
 From this screenshot, we can see that the current working directory of the runner is already the repo itself. But we want to copy the entire repo, thus, we cd out a level, and use `./my_deployment_project` as the source of copy in `scp`. By the way, details of each run of workflow can be found in the `Actions` tab in Github. Click on any of the workflows for more details.
 
@@ -235,7 +236,7 @@ ubuntu@ip-172-31-44-130:~$
 ```
 
 However, if you repeat this process various times, you find this error.
-![A build error](https://raw.githubusercontent.com/Gnefil/Blog/main/img/post_images/automated_deployment_error.png)
+![A build error](images/illustrations/auto_deploy.error.png)
 This is because the second time we are trying to `scp` in the same folder, we are essentially replacing the original ones. To avoid that, an easy workaround is to push the code first to the home directory temporally, move its content to the production folder, and then remove the temp folder.
 
 ```yml
