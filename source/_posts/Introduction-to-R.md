@@ -2,14 +2,14 @@
 title: Introduction to R
 date: 2022-04-13 20:11:09
 categories: [R]
-tags: [R, introduction]
-thumbnail: 
+tags: [Tech Stack]
+thumbnail: images/thumbnails/intro_r.jpg
 excerpt: R is a numerical computing language commonly used and compared to Matlab, Python, etc. Most importantly, it is the language that I use for statistical analysis in a survey course. Hence, this little introduction to the R language.
 banner: 
 sticky: 
 ---
 # R language
----
+
 ## *What? And why?*
 `R` is a language developed in an open-source environment. It is an interpreted language that does not need to be compiled by a compiler, and allows rapid programming with its interactive command-line interface (similar to the Python one) and scripting.
 
@@ -18,7 +18,7 @@ Due to its straightforwardness, it is widely used in data mining and data analys
 ## RStudio
 We hardly ever just write code from the command line, and even less if the language we are using is mainly to get visual analysis of the data. Therefore, the most common way to use `R` is by `Rstudio`, a Graphical User Interface software to develop R code.
 
-![rstudio_logo](https://raw.githubusercontent.com/Gnefil/Blog/main/img/post_images/rstudio_logo.png)
+![rstudio_logo](images/illustrations/intro_r.logo.png)
 
 
 Once downloaded and inside, 4 panels (3 if the script panel is not opened) will show up. From left top to right bottom, they are:
@@ -31,7 +31,7 @@ Once downloaded and inside, 4 panels (3 if the script panel is not opened) will 
   - **Packages** to explore any installed R packages.
   - **Help** outputs the relevant information when help("some_command") is called
 
-![rstudio_4_panels](https://raw.githubusercontent.com/Gnefil/Blog/main/img/post_images/rstudio_4_panels.jpg)
+![rstudio_4_panels](images/illustrations/intro_r.4_panels.jpg)
 
 ## R packages
 R as a community comes with the huge support of packages. Install a package with
