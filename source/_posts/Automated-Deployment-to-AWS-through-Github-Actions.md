@@ -2,7 +2,7 @@
 title: Automated Deployment to AWS through Github Actions
 date: 2023-01-15 12:23:53
 categories: [Deployment]
-tags: [Tutorial, Github Actions, AWS]
+tags: [Tech Stack, Github Actions, AWS]
 thumbnail: images/thumbnails/auto_deploy.jpg
 excerpt: Frustrated about git pushing - remote access - git pulling all the time? This post will show you a simple automated way to deploy code through GitHub Actions.
 banner: 

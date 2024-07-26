@@ -2,7 +2,7 @@
 title: EEG Feeling Emotions with PyTorch
 date: 2022-10-26 12:23:19
 categories: [AI & ML]
-tags: [EEG, PyTorch, Logistic Regression]
+tags: [Tech Stack, EEG, PyTorch, Logistic Regression]
 thumbnail: images/thumbnails/eeg_emotions.png
 excerpt: How do you feel today? Wait, don't tell me. Let me guess it. Based on? Your brain signals.
 banner: 
