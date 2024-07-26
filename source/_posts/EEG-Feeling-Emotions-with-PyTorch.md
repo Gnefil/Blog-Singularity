@@ -145,7 +145,7 @@ Now it is time to write the **logistic regression** model ​⚒️!
 
 ### 3.1 Dataset class
 Imagine the datasets as spare data which could come in any form, how can PyTorch handle each case?  
-The answer is that it **doesn't** handle, we as users are the ones reponsible to moderate the data according to PyTorch **dataset interface**.  
+The answer is that it **doesn't** handle, we as users are the ones responsible to moderate the data according to PyTorch **dataset interface**.  
 The following code is out of scope of this workshop. Just run it and should be fine, although you can have a look if interested.
 
 ```py
@@ -255,7 +255,7 @@ def test(dataloader, model, loss_fn):
 ```
 
 ### 4.3 Train
-Finally! The following cell intialises the model and trains the model. Learning the data may take some time, please be patient. Same, some functions are specific to PyTorch, you don't need to fully understand them. Have a guess, what do they mean?
+Finally! The following cell initialises the model and trains the model. Learning the data may take some time, please be patient. Same, some functions are specific to PyTorch, you don't need to fully understand them. Have a guess, what do they mean?
 
 ```py
 # Initialise
