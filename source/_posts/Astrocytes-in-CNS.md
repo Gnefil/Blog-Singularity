@@ -37,7 +37,7 @@ Furthermore, a key role of astrocytes is to control the CNS microenvironment wit
 
 Astrocytes cover a huge variety of supportive functions in CNS, they are the indispensable stewards of neurons. As imperative supportive cells, astrocytes are not less important for not firing action potentials, without their support, CNS cannot exist (Verkhratsky and Nedergaard 2018).	
 
-**References**:
+# References
 - Dringen, R., Gebhardt, R., and Hamprecht, B. (1993) "Glycogen in astrocytes: possible function as lactate supply for neighboring cells", Brain research, 623(2), pp. 208-214.
 - Kettenmann, H., Kirchhoff, F., and Verkhratsky, A. (2013). "Microglia: new roles for the synaptic stripper", Neuron, 77(1), pp. 10-18.
 - Magistretti, P.J., and Allaman, I. (2015) "A cellular perspective on brain energy metabolism and functional imaging", Neuron, 86(4), pp. 883-901.

@@ -33,7 +33,7 @@ After setting up GitHub Actions, I automated it into:
 # Preparatives
 Here are the key roles of this deployment.
 
-### Github repo
+## Github repo
 First of all, we assume that we have a GitHub account. We will start a new repo as an example and call it "my_deployment_project", and place clone it somewhere in your computer.
 
 ![Create repo](images/illustrations/auto_deploy.create_repo.png)
@@ -60,7 +60,7 @@ README.md
 README.md  some_file.txt 
 ```
 
-### Server
+## Server
 A hosted server like AWS EC2, with a folder that is prepared to be posted to the public internet. This can be achieved via `Apache`, `Nginx`, or other web-serving tools. You should have your SSH key to access the server as well.
 
 To present this deployment with an example, I created a `deployed_folder` in my `home` directory on the server.
@@ -83,7 +83,7 @@ Right now it is empty.
 
 # Automate deployment
 
-### Set up GitHub Actions
+## Set up GitHub Actions
 If we look right now at our `Actions` tab in the repo, we find it empty.
 ![Empty Github Actions](images/illustrations/auto_deploy.github_actions_empty.png)
 
@@ -136,7 +136,7 @@ jobs:
 
 ```
 
-### Understanding each part of the workflow
+## Understanding each part of the workflow
 All these lines of code may sound bad enough, but don't worry, we go through each of them.
 
 - `name` denotes the name of this deployment workflow, I have called it *Github Actions example deployment*.
@@ -165,7 +165,7 @@ jobs:
 
 ```
 
-### Add steps to push code to the server automatically
+## Add steps to push code to the server automatically
 Reminding that our final goal is to deploy the code to the server automatically whenever we make a git push. In order to complete that, we can divide our steps as:
 1. Copy the entire repo to the runner
 2. Access the remote server through SSH

@@ -8,9 +8,7 @@ excerpt: R is a numerical computing language commonly used and compared to Matla
 banner: 
 sticky: 
 ---
-# R language
-
-## *What? And why?*
+# What? And why?
 `R` is a language developed in an open-source environment. It is an interpreted language that does not need to be compiled by a compiler, and allows rapid programming with its interactive command-line interface (similar to the Python one) and scripting.
 
 Due to its straightforwardness, it is widely used in data mining and data analysis. As one of the most commonly used numerical computing programming languages, it is worth having a brief introduction to it.
@@ -46,7 +44,7 @@ library("package_name")
 
 These actions can also be done in the RStudio GUI.
 
-## R scripts
+# R scripts
 Very often, we need to use a piece of code on multiple occasions, that's why it is useful to store them in a file. These files are called `R` scripts.
 ```r    
 # This is a script that calculates the root mean square of two numbers
@@ -68,7 +66,7 @@ data <- read.table(filename, header=TRUE, sep="\t")
 
 ## Data structures
 
-### *Vector*
+### Vector
 Vector is a group of values ordered as an array in which all elements should be of the same type.
 
 There are several ways of **instantiating** a vector:
@@ -85,7 +83,7 @@ v[1:3] # first three elements (vector)
 v[c(1, 3, 5)] # first, third and fifth elements, notice 1-indexed
 ```
 
-### *List*
+### List
 List is a vector that allows multiple types of values.
 
 List follows the same creation and extraction rules as a vector, only that each element is also considered as a list. Hence:
@@ -97,7 +95,7 @@ l[[4]][3] # third element of the fourth element, -3. Do not use l[[4, 3]]
 ```
 
 
-### *Matrix*
+### Matrix
 Matrix is a vector of vectors; a 2D vector, and has a rectangular shape.
 
 **Create** a matrix
@@ -121,7 +119,7 @@ n[1, ] # first row; [8, 1, 2]
 n[, 3] # first column; [2, 3, 3]
 ```
 
-### *Data frame*
+### Data frame
 Data frame is the most commonly used data structure in R. It is a matrix in which each column is considered an attribute of the data, and each row is considered an observation. As attributes, columns always have their name. If not declared explicitly, they will be called `X1`, `X2`, `X3`, etc.
 For instance, in a survey, each row is a person, and each column is a variable from a question (e.g. age, sex, income). 
 
@@ -244,5 +242,5 @@ A good place to start is the [ggplot2](https://www.ggplot2.org/) package.
 R Markdown is a simple syntax for writing R code in a Markdown-like format.
 
 
-## Conclusion
+# Conclusion
 `R` is a very powerful language, and it is very easy to learn. This has been a quick introductory post about its general syntax and some of the most common features. The next R tutorial may be a real example of how to use it to extract wanted data and perform statistical analysis on it.
