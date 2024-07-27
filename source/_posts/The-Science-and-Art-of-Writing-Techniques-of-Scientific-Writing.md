@@ -2,8 +2,8 @@
 title: 'The Science and Art of Writing: Techniques of Scientific Writing'
 date: 2022-09-15 16:20:02
 categories: [The Science and Art of Writing]
-tags: [Scientific Writing, reader]
-thumbnail: 
+tags: [Theoretical Framework, Journal]
+thumbnail: images/thumbnails/writing_techniques.jpg
 excerpt: The Science and Art of Writing is a series of posts connected to the world of writing. This is the second post of the series in which we give ground the philosophy mentioned in the first post.
 banner: 
 sticky: 

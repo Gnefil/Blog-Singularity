@@ -2,8 +2,8 @@
 title: 'The Science and Art of Writing: Philosophy of Scientific Writing'
 date: 2022-08-19 16:40:53
 categories: [The Science and Art of Writing]
-tags: [Scientific Writing, Readers, Journal]
-thumbnail: 
+tags: [Theoretical Framework, Journal]
+thumbnail: images/thumbnails/writing_philosophy.jpg
 excerpt: The Science and Art of Writing is a series of posts connected to the world of writing. In this first post, we discuss the philosophy of scientific writing. Ideas for this philosophy are mainly inspired by professor Larry McEnerney from the University of Chicago.
 banner: 
 sticky: 
