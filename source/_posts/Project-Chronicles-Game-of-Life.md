@@ -292,5 +292,5 @@ Successful in getting the desired leaf cells!
 In this JavaScript canvas article, we learned how to use trigonometric functions to rotate and copy a specific pattern. If the angular requirements and coordinate system starts at the center, you can just use these trigonometric functions directly in the table that I came up with at the end. But more importantly, is that this can be applied to different scenes and distinct angles. This article presents an idea, an example that can help and then be optimized by readers.
 
 
-## Ending
+# Ending
 Overall, I had to face various challenges when developing this project, and needed to persevere relentlessly. I proudly say that I enjoyed the process. That is why I gathered these learnt points, summed them up, and written them down to archive them for future reference.
