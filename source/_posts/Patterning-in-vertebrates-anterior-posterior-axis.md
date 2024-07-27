@@ -1,14 +1,15 @@
 ---
-title: Patterning in vertebrates anterior-posterior axis
+title: Patterning in Vertebrates Anterior-Posterior Axis
 date: 2022-02-08 15:21:38
 categories: [Neuroscience]
-tags: [Biology, Neuroscience, Developmental Biology, Patterning, How to Make a Brain]
-thumbnail: 
+tags: [Class Notes, Patterning, How to Make a Brain]
+thumbnail: images/thumbnails/patterning.jpg
 excerpt: Patterning is one of the key processes which shapes the diversity and the role of each part of the Central Nervous System (CNS). In this post, we explore anterior-posterior axis patterning in frog (Xenopus Laevis) through an small answer essay to this question.
 banner: 
 sticky: 
 ---
-## In a model vertebrate of your choice, explain how the neural tube becomes patterned along the anterior-posterior axis. 
+
+# In a model vertebrate of your choice, explain how the neural tube becomes patterned along the anterior-posterior axis. 
 
 Patterning is essential in early embryonic development. It is the result of the uneven concentration gradient of morphogens spread throughout the embryo space. Anterior-Posterior patterning is one of the keys to inducing different cellular fates to form distinct types of cells correctly. Frog (Xenopus Laevis) is an example vertebrate to explore this patterning.
 
@@ -31,10 +32,8 @@ Once the anterior patterning stabilises and confirms forebrain and hindbrain fat
 
 The Anterior-Posterior axis patterning is indispensable to the wide range of cell type formation along the neural tube of vertebrates. Anterior-Posterior patterning plus Dorsal-Ventral patterning and different homeobox genes together give neuroblasts unique identities to form relevant cell types and perform future tasks.
 
-**References:**
+# References
 - Joyner, A.L., Liu, A., and Millet S. (2000) "Otx2, Gbx2 and Fgf8 interact to position and maintain a mid–hindbrain organizer", Current opinion in cell biology, 12(6), pp. 736-741.
 - Moore, K.L., Persaud, T.V.N., and Torchia, M.G. (2013) The Developing Human: Clinically Oriented Embryology. 9th. Saunders, pp. 506-509.
-- Sanes, D.H., Reh, T.A., Harris, W.A., and Landgraf, M. (2019) Development of the Nervous System. 4th. Academic Press, pp. 27-52
-
- the Nervous System. 4th. Academic Press, pp. 27-52
+- Sanes, D.H., Reh, T.A., Harris, W.A., and Landgraf, M. (2019) Development of the Nervous System. 4th. Academic Press, pp. 27-52 the Nervous System. 4th. Academic Press, pp. 27-52
 
