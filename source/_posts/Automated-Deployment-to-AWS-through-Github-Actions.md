@@ -15,19 +15,20 @@ In this post, we are going to learn how to make a simple automated deployment us
 
 In my case, it increases a lot of efficiencies when updating my blog. I find it a bit redundant to repeat the same steps once I upload something new to the blog: 
 ```
-- Have the post written.
+-> Have the post written.
 0. Build and test the compiled blog
 1. Push code to GitHub
 2. Connect to my server via SSH
 3. Find the blog folder and git pull
-- Post available on the website.
+4. Build the blog
+-> Post available on the website.
 ``` 
 
 After setting up GitHub Actions, I automated it into:
 ```
-- Have the post written.
+-> Have the post written.
 1. Push code to Github
-- Post available on the website.
+-> Post available on the website.
 ``` 
 
 # Preparatives
@@ -68,7 +69,7 @@ To present this deployment with an example, I created a `deployed_folder` in my 
 ```sh
 Server
 -------
-ubuntu@ip-172-31-44-130:~$ pwd # Where I am
+ubuntu@ip-172-31-44-130:~$ pwd # Where am I
 /home/ubuntu
 ubuntu@ip-172-31-44-130:~$ ls # What is in my current directory
 deployed_folder
@@ -122,7 +123,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -173,14 +174,14 @@ Reminding that our final goal is to deploy the code to the server automatically 
 
 To complete **step 1** we write down the following code:
 ```yml
-uses: actions/checkout@v3
+uses: actions/checkout@v4
 ```
 This line scans through your repo so that your job can manipulate it.
 
 **Step 2** is essentially storing your SSH Key into the runner:
 ```yml
 env:
-  SSH_KEY: SomeRandomTextThatPretendToBeASSHKey
+  SSH_KEY: SomeRandomTextThatPretendsToBeASSHKey
 run: |
   mkdir ~/.ssh/
   echo "${{ env.SSH_KEY }}" > ~/.ssh/id_rsa
@@ -190,7 +191,7 @@ Now, some explanations for this snippet. The keyword `env` denotes any variables
 
 Later, the SSH key must be stored in a folder with file name *~/.ssh/id_rsa*. `chmod` changes the mode to read-only, which makes sense as we don't want to modify the SSH key in any of the cases. 
 
-Also, you might have noticed that it is really unsafe to store SSH keys or other sensible pieces of information explicitly there in the code. Therefore, Github provides a helpful function called **Environment Secrets**. It is in the `Settings` tab in the Github repo, `Security`, and then `Actions`.
+Also, you might have noticed that it is really unsafe to store SSH keys or other sensible pieces of information explicitly there in the code. Therefore, Github provides a helpful function called **Environment Secrets**. It is in the `Settings` tab in the Github repo, `Security`, and then `Secrets and Variables` - `Actions`.
 
 ![Environment Secrets](images/illustrations/auto_deploy.env_secrets.png)
 
@@ -198,7 +199,7 @@ Click on `New Repository Secret` and add your SSH key. I have called it SSH_KEY.
 
 ![SSH Key](images/illustrations/auto_deploy.ssh_key.png)
 
-Then we can change our **step 2** to:
+Then we can change our **step 2** to by calling *secrets.name_of_key*:
 ```yml
 env:
   SSH_KEY: ${{ secrets.SSH_KEY }}
@@ -237,33 +238,16 @@ ubuntu@ip-172-31-44-130:~$
 
 However, if you repeat this process various times, you find this error.
 ![A build error](images/illustrations/auto_deploy.error.png)
-This is because the second time we are trying to `scp` in the same folder, we are essentially replacing the original ones. To avoid that, an easy workaround is to push the code first to the home directory temporally, move its content to the production folder, and then remove the temp folder.
+This is because the second time we are trying to `scp` in the same folder, we are essentially replacing the original ones. To avoid that, we could remove the production folder and copy the new one to it again.
 
 ```yml
 run: |
   cd ..
-  scp -o StrictHostKeyChecking=no -r ./my_deployment_project ubuntu@13.40.196.20:/home/ubuntu/temp
-  ssh -o StrictHostKeyChecking=no ubuntu@13.40.196.20 cp -r /home/ubuntu/temp/* /home/ubuntu/deployed_folder/ # Copy content from the temp folder to production folder
-  ssh -o StrictHostKeyChecking=no ubuntu@13.40.196.20 rm -r /home/ubuntu/temp # Remove the temp folder
+  ssh -o StrictHostKeyChecking=no ubuntu@13.40.196.20 rm -rf ~/deployed_folder # Remove production folder
+  scp -o StrictHostKeyChecking=no -r ./my_deployment_project ubuntu@13.40.196.20:~/deployed_folder
 ```
 
-At some moment, this would happen automatically in the server:
-```sh
-Server
-------
-ubuntu@ip-172-31-44-130:~$ ls
-deployed_folder
-ubuntu@ip-172-31-44-130:~$ ls
-deployed_folder  temp
-ubuntu@ip-172-31-44-130:~$ ls temp
-README.md  some_file.txt
-ubuntu@ip-172-31-44-130:~$ ls
-deployed_folder  temp
-ubuntu@ip-172-31-44-130:~$ ls
-deployed_folder
-```
-
-> Of course, this is not a correct solution to the replacement problem, as it won't remove any old files that you have removed in the most recent pushes. Another "broken" solution (like this one) is to remove the whole production folder and add it again, in each deployment. However, this will derive an impaired web service for the duration of the deployment. More advanced and complete techniques would be to `rm` the differences between the two folders. Or to use two alternate folder locations, and while one is being deployed, run the other one in operation. 
+> Of course, this is one way to workaround this problem. It will derive an impaired web service for the duration of the deployment. If a few seconds or minutes of downtime is not a problem for you, then you can try this You could also try pushing the code first to the home directory temporally, move its content to the production folder, and then remove the temp folder. Old unwanted files won't be removed though. More advanced and complete techniques would be to `rm` the differences between the two folders. Or to use two alternate folder locations, and while one is being deployed, run the other one in operation. 
 
 And... we are done! Now you have a simple workflow that automatically pushes your code to `~/deployed_folder` whenever you make a git push to the main branch! This is the resulting code.
 
@@ -290,50 +274,60 @@ jobs:
           echo "${{ env.SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 700 ~/.ssh/id_rsa
           cd ..
-          scp -o StrictHostKeyChecking=no -r ./my_deployment_project ubuntu@13.40.196.20:/home/ubuntu/temp
-          ssh -o StrictHostKeyChecking=no ubuntu@13.40.196.20 cp -r /home/ubuntu/temp/* /home/ubuntu/deployed_folder/
-          ssh -o StrictHostKeyChecking=no ubuntu@13.40.196.20 rm -r /home/ubuntu/temp 
+          ssh -o StrictHostKeyChecking=no ubuntu@13.40.196.20 rm -rf ~/deployed_folder # Remove production folder
+          scp -o StrictHostKeyChecking=no -r ./my_deployment_project ubuntu@13.40.196.20:~/deployed_folder
 ```
 
 # Personalise to your needs
-This is only a very beginner and simple deployment script, which can be enhanced depending on your own needs. For example, the version I use for my blog is:
+This is only a very beginner and simple deployment script, which can be enhanced depending on your own needs. For example, the version I use for my blog (at the moment of edit) is:
 ```yml
-name: Blog test and deploy
-run-name: ${{ github.actor }} is testing and deploying blog
+name: Deploy to production server
+run-name: ${{ github.actor }} is deploying blog to production server
 
 on:
-  workflow_dispatch:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
   pull_request:
-    branches: 
-      - main
+    branches: [ "main" ]
 
+  workflow_dispatch:
 
 jobs:
-  Build:
+  Deploy:
     runs-on: ubuntu-latest
 
+    env:
+      ssh-prefix: ssh -o StrictHostKeyChecking=no ubuntu@13.40.196.20
+      scp-prefix: scp -o StrictHostKeyChecking=no -r
+      temp-dir: /home/ubuntu/blog
+      prod-dir: /var/www/html/blog
+      esc-prod-dir: \/var\/www\/html\/blog
+
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Clean install dependencies
         run: npm ci
-      
+
       - name: Build
         run: npm run build
 
       - name: Deploy to remote server
-        env:
-          SSH_KEY: ${{ secrets.SSH_KEY }}
         run: |
           mkdir ~/.ssh/
-          echo "${{ env.SSH_KEY }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 700 ~/.ssh/id_rsa
-          scp -o StrictHostKeyChecking=no -r ./public ubuntu@13.40.196.20:/home/ubuntu/blog
-          ssh -o StrictHostKeyChecking=no ubuntu@13.40.196.20 sudo cp -r /home/ubuntu/blog/* /var/www/html/blog/
-          ssh -o StrictHostKeyChecking=no ubuntu@13.40.196.20 rm -r /home/ubuntu/blog
+          mv ./public ./blog
+          ${{ env.ssh-prefix }} rm -rf ${{ env.temp-dir }}
+          ${{ env.scp-prefix }} ./blog ubuntu@13.40.196.20:${{ env.temp-dir }}
+
+      - name: Check content existence
+        run: ${{ env.ssh-prefix }} 'if [ -d ${{ env.temp-dir }} ]; then echo "temporal folder is not empty"; else echo "temporal folder is empty"; fi'
+
+      - name: Update production folder
+        run: | 
+          ${{ env.ssh-prefix }} sudo rm -rf ${{ env.prod-dir }}
+          ${{ env.ssh-prefix }} sudo mv ${{ env.temp-dir }} ${{ env.prod-dir }}
 
 ```
 
