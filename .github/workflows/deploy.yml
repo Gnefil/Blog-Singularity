@@ -14,8 +14,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      ssh-prefix: ssh -o StrictHostKeyChecking=no ubuntu@13.40.196.20
-      scp-prefix: scp -o StrictHostKeyChecking=no -r
+      ssh-prefix: ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ubuntu@13.40.196.20
+      scp-prefix: scp -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no -r
       temp-dir: /home/ubuntu/blog
       prod-dir: /var/www/html/blog
       esc-prod-dir: \/var\/www\/html\/blog
@@ -31,9 +31,10 @@ jobs:
 
       - name: Deploy to remote server
         run: |
-          mkdir ~/.ssh/
+          mkdir -p ~/.ssh/
           echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
-          chmod 700 ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan 13.40.196.20 >> ~/.ssh/known_hosts
           mv ./public ./blog
           ${{ env.ssh-prefix }} rm -rf ${{ env.temp-dir }}
           ${{ env.scp-prefix }} ./blog ubuntu@13.40.196.20:${{ env.temp-dir }}
